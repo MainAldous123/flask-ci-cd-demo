@@ -1,4 +1,4 @@
-name: CI Pipeline
+name: CI/CD Pipeline
 
 on:
   push:
@@ -26,3 +26,11 @@ jobs:
 
     - name: Ejecutar pruebas
       run: pytest
+
+  deploy:
+    needs: build-and-test
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Simulación de Deploy
+      run: echo "Deploy realizado correctamente 🚀"
